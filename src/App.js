@@ -1,12 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+//pages
+import Home from './pages/Home';
+import Panel from './pages/Panel';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <input type='text' placeholder='Usuario' />
-      </header>
+    <div>
+     <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/panel" element={<Panel />} />
+     </Routes>
     </div>
   );
 }
