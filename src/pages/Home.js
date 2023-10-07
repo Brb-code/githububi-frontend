@@ -7,11 +7,10 @@ const Home = () => {
   const [nombre, setNombre] = useState(null);
   const [pass, setPass] = useState(null);
 
-  const handleLogin = (e, event) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     let usuario = {
       nombre,
-      pass,
       rol: nombre === "admin" ? "ADMINISTRADOR" : "USUARIO",
     };
 
@@ -32,7 +31,6 @@ const Home = () => {
         <h2 variant="h5" gutterBottom>
           Iniciar sesión
         </h2>
-        {/* Agrega tus campos de formulario (por ejemplo, nombre de usuario y contraseña) */}
         <TextField
           label="Nombre de usuario"
           margin="normal"

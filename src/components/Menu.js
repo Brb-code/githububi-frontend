@@ -10,7 +10,8 @@ const Menu = (props) => {
     if (!tk) salir();
     const usuario = JSON.parse(localStorage.getItem("user"));
     if (!usuario) salir();
-    else if (usuario.rol !== props.rol) salir();
+    else if (usuario.rol !== "ADMINISTRADOR" && usuario.rol !== props.rol)
+      salir();
     else setUsuario(usuario);
   }, []);
 
