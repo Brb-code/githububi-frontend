@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.fa8c9dc6.js",
-    "static/js/787.7b504187.chunk.js": "/static/js/787.7b504187.chunk.js",
-    "index.html": "/index.html",
-    "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.fa8c9dc6.js.map": "/static/js/main.fa8c9dc6.js.map",
-    "787.7b504187.chunk.js.map": "/static/js/787.7b504187.chunk.js.map"
+    "main.css": "/githububi-frontend/static/css/main.073c9b0a.css",
+    "main.js": "/githububi-frontend/static/js/main.6907bad2.js",
+    "static/js/787.7b504187.chunk.js": "/githububi-frontend/static/js/787.7b504187.chunk.js",
+    "index.html": "/githububi-frontend/index.html",
+    "main.073c9b0a.css.map": "/githububi-frontend/static/css/main.073c9b0a.css.map",
+    "main.6907bad2.js.map": "/githububi-frontend/static/js/main.6907bad2.js.map",
+    "787.7b504187.chunk.js.map": "/githububi-frontend/static/js/787.7b504187.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.fa8c9dc6.js"
+    "static/js/main.6907bad2.js"
   ]
 }
