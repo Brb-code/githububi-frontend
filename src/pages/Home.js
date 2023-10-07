@@ -1,34 +1,63 @@
-import React, { useState } from 'react';
-import { Skeleton, TextField, Button } from '@mui/material';
-import { Box } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { TextField, Button, Card, CardContent } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-    let navigate = useNavigate();
-    const [version, setVersion] = useState(null);
+  let navigate = useNavigate();
+  const [nombre, setNombre] = useState(null);
+  const [pass, setPass] = useState(null);
 
-    setTimeout(() => {
-        console.log("CAMBIA")
-        setVersion("0.1.0")
-    }, 5000);
+  const handleLogin = (e, event) => {
+    e.preventDefault();
+    let usuario = {
+      nombre,
+      pass,
+      rol: nombre === "admin" ? "ADMINISTRADOR" : "USUARIO",
+    };
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        console.log("mmmmmmmmmmmmmmmm")
-        return navigate("/panel");
-    }
+    localStorage.setItem("tk", "123123123123123123123123");
+    localStorage.setItem("user", JSON.stringify(usuario));
+    if (usuario.rol === "ADMINISTRADOR") return navigate("/admin");
+    else return navigate("/panel");
+  };
 
-    const formulario = <div >
-        <Box component="form" onSubmit={handleLogin}>
-            <TextField id="user" label="Usuario" variant="standard" />
-            <TextField id="password" label="Contraseña" variant="standard" />
-            <Button type='submit' variant="outlined">Ingresar</Button>
-        </Box>
-    </div>;
+  const changeUsuario = (event) => {
+    if (event.target.name === "nombre") setNombre(event.target.value);
+    else if (event.target.name === "pass") setPass(event.target.value);
+  };
 
-    return (
-        version ? <div > {formulario} <br /> {version} </div> : <Skeleton animation="wave" />
-    )
-}
+  return (
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent elevation={3} component="form" onSubmit={handleLogin}>
+        <h2 variant="h5" gutterBottom>
+          Iniciar sesión
+        </h2>
+        {/* Agrega tus campos de formulario (por ejemplo, nombre de usuario y contraseña) */}
+        <TextField
+          label="Nombre de usuario"
+          margin="normal"
+          fullWidth
+          required
+          name="nombre"
+          value={nombre}
+          onChange={changeUsuario}
+        />
+        <TextField
+          label="Contraseña"
+          type="password"
+          margin="normal"
+          fullWidth
+          required
+          name="pass"
+          value={pass}
+          onChange={changeUsuario}
+        />
+        <Button variant="contained" color="primary" fullWidth type="submit">
+          Iniciar sesión
+        </Button>
+      </CardContent>
+    </Card>
+  );
+};
 
-export default Home
+export default Home;
